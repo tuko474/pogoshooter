@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#141a3a">
+<!-- номер версии подставляет сборка в GitHub Actions; при локальной сборке остаётся «dev» -->
+<meta name="app-version" content="dev">
+<title>Pogoshooter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;600&display=swap">
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="c"></canvas>
+
+  <button type="button" class="icon-btn" id="pauseBtn" aria-label="Пауза" hidden>II</button>
+
+  <div class="overlay" id="start">
+    <div class="card">
+      <h1>Pogoshooter</h1>
+      <p class="sub">Ты на пого-палке и не можешь остановиться. Пушка стреляет сама. Твоя задача — прыгать.</p>
+      <ul class="rules">
+        <li><b>Зажми</b><span>пружина сжимается при приземлении, копится сила</span></li>
+        <li><b>Отпусти</b><span>прыжок в сторону пальца, пунктир покажет траекторию</span></li>
+        <li><b>В воздухе</b><span>держи палец сбоку, чтобы рулить</span></li>
+        <li><b>Стомп</b><span>прыгни врагу на голову: убийство и отскок, серия стомпов умножает очки</span></li>
+      </ul>
+      <p class="best" id="bestMenu"></p>
+      <button id="go" type="button" class="primary">Прыгать!</button>
+      <div class="row"><button type="button" class="ghost mute">Звук: вкл</button></div>
+      <p class="small" id="ver"></p>
+    </div>
+  </div>
+
+  <div class="overlay" id="pause" hidden>
+    <div class="card">
+      <h1>Пауза</h1>
+      <button id="resume" type="button" class="primary">Продолжить</button>
+      <div class="row">
+        <button type="button" class="ghost mute">Звук: вкл</button>
+        <button type="button" class="ghost" id="quit">В меню</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="over" hidden>
+    <div class="card">
+      <h1>Плюх!</h1>
+      <div class="big" id="finalScore">0</div>
+      <p class="sub" id="finalInfo"></p>
+      <button id="again" type="button" class="primary">Ещё раз</button>
+      <div class="row"><button type="button" class="ghost" id="toMenu">В меню</button></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
