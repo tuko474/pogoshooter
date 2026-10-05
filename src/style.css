@@ -12,6 +12,8 @@
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+/* без этого .overlay { display:flex } перебивает атрибут hidden и все экраны видны разом */
+[hidden] { display: none !important; }
 html, body { height: 100%; margin: 0; }
 body {
   background: var(--night);
